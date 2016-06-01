@@ -3,38 +3,37 @@
 	z-index: 0;
 	left:0;
 	top:0;
-	width: 200px;
-	height: 200px;
-	line-height:200px;
+	width: 140px;
+	height: 140px;
+	line-height:140px;
 	border-radius:50%;
 	text-align: center;
 	color: #000;
-	font-size: 200%;
+	font-size: 140%;
 	background-color:#f0f0f0;
 	overflow:hidden;
 	background-image: linear-gradient(to right, transparent 50%, yellowgreen 0);
 	cursor:pointer;
 }
-.pie>.span_1{
+.pie span{
 	position:absolute;
 	top:0;
-	left:50%;
 	width:50%;
 	height:100%;
+	z-index:-1;
+	transform:rotate(0turn);
+	display: block;
+}
+.pie>.span_1{
+	left:50%;
 	background-color: inherit;
 	transform-origin: left;
-	z-index:-1;
-	transform:rotate(0turn);
+	transition:transform 1s linear;
 }
 .pie>.span_2{
-	position:absolute;
-	display:none;
-	top:0;
-	left:0%;
-	width:50%;
-	height:100%;
+	opacity: 0;
+	left:50%;
 	background-color: yellowgreen;
-	transform-origin: right;
-	z-index:-1;
-	transform:rotate(0turn);
+	transform-origin: left;
+	transition: transform 1s linear 1s;
 }
