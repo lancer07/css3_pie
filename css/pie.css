@@ -1,0 +1,53 @@
+.pie{
+	position: relative;
+	z-index: 0;
+	left:0;
+	top:0;
+	width: 140px;
+	height: 140px;
+	line-height: 140px;
+	border-radius:50%;
+	text-align: center;
+	color: #000;
+	font-size: 140%;
+	background-color:#f0f0f0;
+	background-image: linear-gradient(to right, transparent 50%, yellowgreen 0);
+	cursor:pointer;
+	overflow: hidden;
+}
+.pie strong{
+	position: absolute;
+	width: 100%;
+	left: 0;
+	z-index: 1;
+}
+.pie span{
+	display: block;
+	border-radius: 50%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+}
+.pie div{
+	position:absolute;
+	top:0;
+	width:60%;
+	height:100%;
+	left:50%;
+	transform:rotate(0turn);
+	transform-origin: center left;
+	transition:transform 0.7s linear;
+}
+.pie>.div_1{
+	background-color: inherit;
+	z-index: -2;
+}
+.pie>.div_2{
+	height:110%;
+	opacity: 0;
+	z-index: -1;
+	background-color: yellowgreen;
+}
