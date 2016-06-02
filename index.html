@@ -3,9 +3,9 @@
 	<head>
 		<meta charset="utf-8">
 		<title>CSS3饼图</title>
-		<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="reset.css">
-		<link rel="stylesheet" type="text/css" href="pie.css">
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" href="css/pie.css">
 		<style type="text/css">
 			body{
 				padding:20px;
@@ -23,83 +23,74 @@
 			}
 			.pie-wrap{
 				width: 140px;
-				height: 140px;
+				height: 200px;
 				float:left;
 				margin:10px;
 				position:relative;
+			}
+			.pie-wrap p{
+				position: absolute;
+				top: 160px;
+				width:140px;
+				text-align: center;
+				font-size: 20px;
 			}
 		</style>
 	</head>
 	<body>
 		<dl>
-			<dt>初始化各种百分比的饼状图</dt>
+			<dt>CSS3饼图</dt>
 			<dd id="init-pie">
 				<div class="pie-wrap">
-					<div class="pie" data-value="0.1"></div>
+					<div class="pie" id="base-pie" data-value="0.2"></div>
+					<p>Base</p>
+				</div>
+
+				<div class="pie-wrap">
+					<div class="pie" id="animate-pie" data-value="0.3"></div>
+					<p>Animate</p>
 				</div>
 				<div class="pie-wrap">
-					<div class="pie" data-value="0.2"></div>
+					<div class="pie" id="ring-pie" data-value="0.4"></div>
+					<p>Ring</p>
 				</div>
+
 				<div class="pie-wrap">
-					<div class="pie" data-value="0.3"></div>
+					<div class="pie" id="colorful-pie" data-value="0.8"></div>
+					<p>ColorFul</p>
 				</div>
-				<div class="pie-wrap">
-					<div class="pie" data-value="0.4"></div>
-				</div>
-				<div class="pie-wrap">
-					<div class="pie" data-value="0.5"></div>
-				</div>
-				<div class="pie-wrap">
-					<div class="pie" data-value="0.6"></div>
-				</div>
-				<div class="pie-wrap">
-					<div class="pie" data-value="0.7"></div>
-				</div>
-				<div class="pie-wrap">
-					<div class="pie" data-value="0.8"></div>
-				</div>
-				<div class="pie-wrap">
-					<div class="pie" data-value="0.9"></div>
-				</div>
-				<div class="pie-wrap">
-					<div class="pie" data-value="1"></div>
-				</div>
+
 			</dd>
 		</dl>
-
-		<dl>
-			<dt>loading中的饼状图</dt>
-			<dd>
-				<div class="pie-wrap">
-					<div class="pie loading-pie" data-value="0"></div>
-				</div>
-			</dd>
-		</dl>
-
 	</body>
-	<script type="text/javascript" src="pie.js"></script>
+	<script type="text/javascript" src="js/pie.js"></script>
 
 	<!-- 初始化各种百分比的饼状图 -->
 	<script type="text/javascript">
-		var pie = new Pie({
-			el : "#init-pie .pie",
+		var pie1 = new Pie({
+			el : "#base-pie"
+		});
+		pie1.init();
+
+		var pie2 = new Pie({
+			el : "#animate-pie",
 			animite : true
 		});
-		pie.init();
-	</script>
+		pie2.init();
 
-	<!-- loading中的饼状图 -->
-	<script type="text/javascript">
-		var pie = new Pie({
-			el : ".loading-pie"
+		var pie3 = new Pie({
+			el : "#ring-pie",
+			animite : true,
+			ring : 0.5
 		});
-		pie.loading();
+		pie3.init();
+
+		var pie4 = new Pie({
+			el : "#colorful-pie",
+			animite : true,
+			ring : 0.7,
+			color : '#ff9933'
+		});
+		pie4.init();
 	</script>
-
-
-
-
-
-
-
 </html>
