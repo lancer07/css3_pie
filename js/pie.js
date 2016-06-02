@@ -3,6 +3,7 @@ var Pie = function(args){
 	var isAnimate = args.animite;
 	var isRing = args.ring;
 	var color = args.color;
+	var isShowNumber = args.number;
 
 	function _append(me,percent){
 		var divs = '<div class="div_1"></div><div class="div_2"></div>';
@@ -18,6 +19,10 @@ var Pie = function(args){
 								'left:'+ (50-w/2) +'%;'+
 								'background:#fff;';
 		}
+		if (isShowNumber == false) {
+			num = '';
+		}
+		
 		content =  num + divs + '<span '+ringStyle+'></span>';
 		$(me).html(content);
 
