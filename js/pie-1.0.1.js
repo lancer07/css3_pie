@@ -1,9 +1,16 @@
+/*
+	Author   : Lancer Lin
+	Version  : 1.0.1
+	Add 	 : 支持旋转，即不一定都要从12点钟方向开始
+*/
+
 var Pie = function(args){
 
-	var isAnimate = args.animite;
-	var isRing = args.ring;
-	var color = args.color;
-	var isShowNumber = args.number;
+	var isAnimate = args.animite, // 是否需要动画
+		isRing = args.ring,  // 是否空心
+		color = args.color,  // 自定义颜色
+		isShowNumber = args.number, // 是否显示中间的百分比
+		rotate = args.rotate;     // 是否旋转
 
 	function _append(me,percent){
 		var divs = '<div class="div_1"></div><div class="div_2"></div>';
@@ -22,7 +29,7 @@ var Pie = function(args){
 		if (isShowNumber == false) {
 			num = '';
 		}
-		
+
 		content =  num + divs + '<span '+ringStyle+'></span>';
 		$(me).html(content);
 
@@ -70,6 +77,14 @@ var Pie = function(args){
 				},100);
 			}else {
 				self.showPie(me,percent);
+			}
+
+			if(rotate){
+				me.css({
+					'transform' : 'rotate('+ rotate +'deg)'
+				}).children('strong').css({
+					'transform' : 'rotate('+ -rotate +'deg)'
+				});
 			}
 		});
 	}
